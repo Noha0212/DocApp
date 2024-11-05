@@ -1,3 +1,4 @@
+import 'package:doc_doc/features/onboarding/widgets/doc_logo_and_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,7 +14,14 @@ class OnboardingScreen extends StatelessWidget {
           top: 30.h,
           bottom: 30.h,
         ),
-        child: const Column(),
+        child: Column(
+          children: [
+            const DocLogoAndName(),
+            SizedBox(
+              height: 30.h,
+            ),
+          ],
+        ),
       ),
     ));
   }
