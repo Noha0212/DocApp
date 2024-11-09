@@ -1,6 +1,8 @@
 import 'package:doc_doc/core/theming/styles.dart';
 import 'package:doc_doc/core/widgets/app_text_button.dart';
 import 'package:doc_doc/core/widgets/app_text_form_field.dart';
+import 'package:doc_doc/features/login/ui/widgets/already_have_account_text.dart';
+import 'package:doc_doc/features/login/ui/widgets/terms_and_conditions_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -81,11 +83,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 16.h,
                   ),
-                  // const TermsAndConditionText(),
+                  const TermsAndConditionsText(),
                   SizedBox(
                     height: 40.h,
                   ),
-                  // const AlreadyHaveAccountText(),
+                  const AlreadyHaveAccountText(),
                 ],
               ),
             ),
