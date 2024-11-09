@@ -14,6 +14,7 @@ class AppTextFormField extends StatelessWidget {
   final TextStyle? hintStyle;
   final bool? isobscureText;
   final Widget? suffixIcon;
+  final Color? fillColor;
   const AppTextFormField({
     super.key,
     this.contentPadding,
@@ -24,12 +25,15 @@ class AppTextFormField extends StatelessWidget {
     this.hintStyle,
     this.isobscureText,
     this.suffixIcon,
+    this.fillColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+        fillColor: fillColor ?? ColorsManager.textFormBGray,
+        filled: true,
         isDense: true,
         contentPadding: contentPadding ??
             EdgeInsets.symmetric(

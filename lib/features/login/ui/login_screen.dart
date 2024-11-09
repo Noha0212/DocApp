@@ -1,4 +1,6 @@
 import 'package:doc_doc/core/theming/styles.dart';
+import 'package:doc_doc/core/widgets/app_text_button.dart';
+import 'package:doc_doc/core/widgets/app_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
+  bool isObsecureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +38,57 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: 36.h,
             ),
-            Form(key: formKey, child: Column())
+            Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  const AppTextFormField(hintText: 'Email'),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  AppTextFormField(
+                    hintText: 'Password',
+                    isobscureText: isObsecureText,
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isObsecureText = !isObsecureText;
+                        });
+                      },
+                      child: Icon(isObsecureText
+                          ? Icons.visibility_off
+                          : Icons.visibility),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 28.h,
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional.centerEnd,
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyles.font14BlueRegular,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40.h,
+                  ),
+                  AppTextButton(
+                    text: 'Login',
+                    textStyle: TextStyles.font16WhiteSemiBold,
+                    onPressed: () {},
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  // const TermsAndConditionText(),
+                  SizedBox(
+                    height: 40.h,
+                  ),
+                  // const AlreadyHaveAccountText(),
+                ],
+              ),
+            ),
           ],
         )),
       ),
